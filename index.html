@@ -233,6 +233,31 @@ body.landscape .broker-btn { top: auto; bottom: calc(var(--u) * 6); left: calc(v
 .eqbar { height: calc(var(--u) * 2.6); background: var(--red); position: relative; box-shadow: inset 0 0 0 2px var(--line); }
 .eqbar .me { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); transition: width .5s steps(10); box-shadow: inset 0 0 0 2px var(--line), inset 0 -3px 0 0 var(--gold-lo); }
 .my-head { display: flex; justify-content: space-between; align-items: center; gap: 6px; height: calc(var(--u) * 7.5); flex: none; }
+.hand-stars { font-size: .72em; color: var(--gold); white-space: nowrap; text-shadow: 1px 1px 0 var(--line); letter-spacing: -1px; }
+.hand-stars .off { color: rgba(255,255,255,.22); }
+.hand-stars em { font-style: normal; letter-spacing: 0; color: var(--cream); margin-left: 3px; font-size: .9em; }
+.hr-btn { font-size: .62em !important; padding: calc(var(--u) * .9) calc(var(--u) * 1.6) calc(var(--u) * 1.3) !important; flex: none; }
+.my-left { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.guide-btn { position: relative; flex: none; z-index: 6; width: calc(var(--u) * 9); height: calc(var(--u) * 9); border: 0; padding: 0; cursor: pointer;
+  background: var(--gold); color: #2b1d0e; font-family: var(--font-t); font-weight: 700; font-size: calc(var(--u) * 5.5); line-height: 1;
+  box-shadow: inset 0 0 0 3px var(--line), inset -3px -4px 0 3px var(--gold-lo), 0 0 0 2px rgba(0,0,0,.4); animation: guideBob 1s steps(2) infinite; }
+.guide-btn.in-table { position: absolute; right: 12px; top: 12px; width: calc(var(--u) * 7.5); height: calc(var(--u) * 7.5); font-size: calc(var(--u) * 4.6); }
+.guide-btn.in-top { margin-left: auto; margin-right: calc(var(--u) * 2); }
+.guide-btn .n { position: absolute; right: -6px; top: -6px; background: var(--red); color: #fff; font-size: .42em; padding: 1px 4px 2px; box-shadow: 0 0 0 2px var(--line); }
+@keyframes guideBob { 50% { transform: translateY(-3px); } }
+.rank-tbl { text-align: left; }
+.rank-row { display: grid; grid-template-columns: calc(var(--u) * 6) 1fr; gap: calc(var(--u) * 2); padding: calc(var(--u) * 1.8) 0; border-bottom: 2px dashed #3b3052; align-items: start; }
+.rank-row:last-child { border-bottom: 0; }
+.rank-row .no { font-family: var(--font-t); color: var(--gold); text-align: center; font-size: 1.05em; }
+.rank-row .nm { font-weight: var(--fw); color: var(--text); }
+.rank-row .nm small { color: var(--green-hi); font-weight: 400; margin-left: 6px; }
+.rank-row .ds { font-size: .78em; color: var(--muted); margin-top: 2px; }
+.mcs { display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap; }
+.mc { display: inline-block; min-width: 1.9em; text-align: center; background: var(--cream); padding: 1px 3px 2px; font-size: .8em; font-weight: 700; box-shadow: inset 0 0 0 2px var(--line); line-height: 1.3; }
+.mc.s { color: #1a1423; } .mc.h { color: #d62839; } .mc.d { color: #1f6feb; } .mc.c { color: #2a9d4b; } .mc.x { opacity: .35; }
+.rank-foot { font-size: .78em; color: #e2d9ee; margin-top: calc(var(--u) * 2.5); line-height: 1.6; text-align: left; }
+.rules .ex { color: var(--muted); font-size: .92em; }
+.rules ol, .rules ul { margin: 2px 0 0; padding-left: 1.3em; }
 .me-lbl { font-size: .72em; color: var(--cream); background: var(--line); padding: 2px 8px 4px; white-space: nowrap; }
 .my-items { display: flex; gap: 6px; }
 .my-items .pbtn { display: flex; align-items: center; gap: 4px; font-size: .75em; padding: calc(var(--u) * 1.2) calc(var(--u) * 1.8) calc(var(--u) * 1.8); }
@@ -612,10 +637,10 @@ body.landscape #ending-choice, body.landscape #ending-close, body.landscape #sto
     <div class="logo"><span class="l2" style="color:var(--gold);">HALL OF FAME</span><span class="sub">명예의 전당 · 온라인 랭킹</span></div>
     <div class="panel notch rank-info">
       <ul class="rank-guide">
-        <li id="rank-guide-login">온라인 랭킹은 <b>claude.ai에 로그인</b>한 상태에서만 참여할 수 있어요.</li>
-        <li>닉네임을 등록하면 일반·하이롤러 모드의 <b>최고 기록이 자동으로 등록</b>돼요.</li>
-        <li>순위는 <b>도달 라운드</b>가 높을수록, 같으면 <b>상금</b>이 클수록 높아요.</li>
-        <li>이스터에그로 세운 기록은 등록되지 않아요.</li>
+        <li id="rank-guide-login">온라인 랭킹은 <b>claude.ai에 로그인</b>한 상태에서만 참여할 수 있습니다.</li>
+        <li>닉네임을 등록하면 일반·하이롤러 모드의 <b>최고 기록이 자동으로 등록</b>됩니다.</li>
+        <li>순위는 <b>도달 라운드</b>가 높을수록, 같으면 <b>상금</b>이 클수록 높습니다.</li>
+        <li>이스터에그로 세운 기록은 등록되지 않습니다.</li>
       </ul>
       <div class="nick-row"><input id="nick-input" maxlength="10" placeholder="닉네임 (최대 10자)" autocomplete="off" spellcheck="false"><button id="nick-save" class="pbtn gold sm notch" onclick="saveNick()">등록</button></div>
       <div id="rank-status" class="rank-status">랭킹 서버에 연결하는 중…</div>
@@ -661,7 +686,7 @@ body.landscape #ending-choice, body.landscape #ending-close, body.landscape #sto
       </div>
       <div class="cards-row" id="aof-my-cards"></div>
       <div class="my-head">
-        <span class="me-lbl">MY HAND</span>
+        <span class="my-left"><span class="me-lbl">MY HAND</span><span id="hand-stars" class="hand-stars"></span><button class="pbtn dark notch hr-btn" onclick="showHandRanks()">족보 보기</button></span>
         <span class="my-items">
           <button id="btn-use-peek" class="pbtn purple notch hidden" onclick="usePeek()"><span class="ic" id="ico-peek"></span>투시 <span id="peek-cnt">0</span></button>
           <button id="btn-use-autowin" class="pbtn pink notch hidden" onclick="useAutoWin()"><span class="ic" id="ico-aw"></span><span id="autowin-label">밑장 0</span></button>
@@ -717,7 +742,7 @@ body.landscape #ending-choice, body.landscape #ending-close, body.landscape #sto
   <div id="settings-modal" class="modal hidden" onclick="if(event.target===this)closeSettings()">
     <div class="modal-box panel notch">
       <div class="panel-title">설정</div>
-      <div class="set-row"><span class="lbl">글꼴<span class="hint">가독성이 좋은 글꼴을 고르세요</span></span>
+      <div class="set-row"><span class="lbl">글꼴<span class="hint">가독성이 좋은 글꼴을 고르십시오</span></span>
         <div class="seg"><button id="set-font-pixel" class="pbtn sm notch" onclick="setFont('pixel')" style="font-family:'Pixelify Sans','Do Hyeon',sans-serif;">도트</button><button id="set-font-noto" class="pbtn sm notch" onclick="setFont('noto')" style="font-family:'Noto Sans KR',sans-serif;">Noto Sans</button></div></div>
       <div class="set-row"><span class="lbl">화면 방향<span class="hint">세로 9:16 · 가로 16:9</span></span>
         <div class="seg"><button id="set-orient-portrait" class="pbtn sm notch" onclick="setOrient('portrait')">세로</button><button id="set-orient-landscape" class="pbtn sm notch" onclick="setOrient('landscape')">가로</button></div></div>
@@ -793,41 +818,92 @@ body.landscape #ending-choice, body.landscape #ending-close, body.landscape #sto
     <div class="modal-box panel notch">
       <div class="panel-title">게임 도움말</div>
       <div class="rules">
-        <h4>목표</h4>
-        라운드를 이길 때마다 판돈이 2배가 됩니다. 원하는 때에 중단하면 판돈을 뱅크롤로 환전하고, 지면 판돈을 모두 잃습니다.
+        <h4>어떤 게임입니까?</h4>
+        포커의 한 종류인 <b>텍사스 홀덤</b>을 아주 단순하게 만든 게임입니다. 매 라운드 상대와 1대1로 붙어서, 내 패로 승부(올인)할지 버릴지(폴드)만 고르면 됩니다. 이길 때마다 판돈이 2배로 불어나고, 원할 때 멈추고 가져갈 수 있습니다.
+
+        <h4>홀덤 기초 ① 카드</h4>
+        카드는 52장입니다. 무늬 4가지(♠♥♦♣)와 숫자 13가지가 있으며, 숫자는 <b>A가 가장 높고</b> K → Q → J → 10 → … → 2 순서로 낮아집니다.
+
+        <h4>홀덤 기초 ② 내 패와 바닥 카드</h4>
+        · 나와 상대는 각자 카드 <b>2장</b>을 받습니다. 이것을 "핸드"라고 합니다.<br>
+        · 그다음 테이블 가운데에 모두가 함께 쓰는 <b>바닥 카드 5장</b>이 깔립니다. 3장(플랍) → 1장(턴) → 1장(리버) 순서입니다.<br>
+        · 내 2장 + 바닥 5장 = 7장 중에서 <b>가장 좋은 5장</b>을 골라 족보를 만들고, 족보가 더 높은 쪽이 이깁니다.
+
+        <h4>홀덤 기초 ③ 족보</h4>
+        강한 순서: 로열 플러시 &gt; 스트레이트 플러시 &gt; 포카드 &gt; 풀하우스 &gt; 플러시 &gt; 스트레이트 &gt; 트리플 &gt; 투페어 &gt; 원페어 &gt; 하이카드<br>
+        <span class="ex">게임 중 MY HAND 옆의 [족보 보기]를 누르면 예시 카드와 함께 볼 수 있습니다.</span><br>
+        · 족보가 같으면 더 높은 숫자로 만든 쪽이 이깁니다. (예: K 원페어 &gt; 9 원페어)<br>
+        · 그것도 같으면 나머지 카드 중 높은 카드(키커)로 비교하고, 완전히 같으면 무승부입니다.
+
+        <h4>예시로 보기</h4>
+        내 패 <b>A♠ K♠</b>, 바닥 <b>K♥ 7♦ 2♣ 9♠ 4♥</b><br>
+        → 내 K와 바닥 K가 짝이 되어 <b>K 원페어</b>입니다. 상대가 Q 원페어라면 내가 이기고, 상대도 K 원페어라면 남은 카드 A를 가진 내가 이깁니다.
+
         <h4>한 라운드 진행</h4>
-        내 카드 2장을 보고 고릅니다.<br>
-        · 올인: 보드 5장이 깔리고 족보가 높은 쪽이 이깁니다.<br>
-        · 폴드: 이번 카드를 버리고 새 카드를 받습니다. 라운드마다 무료 폴드 기회가 있고, 다 쓰면 칩을 내고 폴드합니다(100칩부터 쓸 때마다 2배, 한 게임 동안 유지).
+        내 카드 2장을 보고 선택하십시오.<br>
+        · <b>ALL-IN</b>: 승부합니다. 바닥 카드 5장이 깔리고 승패가 정해집니다.<br>
+        · <b>FOLD</b>: 이번 카드를 버리고 새 카드를 받습니다. 라운드마다 무료 폴드 기회가 있으며, 다 쓰면 칩을 내고 폴드합니다(100칩부터 쓸 때마다 2배, 한 게임 동안 유지).
+
+        <h4>어떤 패가 좋습니까?</h4>
+        MY HAND 옆의 <b>별점(★1~5)</b>이 내 패의 세기를 알려 줍니다. 아무 패나 든 상대와 붙었을 때를 기준으로 한 값입니다.<br>
+        · 좋은 패: 같은 숫자 두 장(페어), A나 K가 들어간 패, 높은 숫자 두 장<br>
+        · 조금 더 좋아지는 경우: 두 장의 무늬가 같거나 숫자가 이어질 때<br>
+        · 약한 패: 낮은 숫자끼리, 숫자 차이가 큰 패 (예: 7과 2)<br>
+        <span class="ex">★4개 이상이면 올인해 볼 만하고, ★1~2개라면 폴드 기회가 있을 때 바꾸는 것이 좋습니다.</span>
+
+        <h4>승률 막대</h4>
+        올인하면 카드가 깔릴 때마다 가운데 막대에 현재 승률이 표시됩니다. 금색이 나, 빨간색이 상대입니다.
+
         <h4>이긴 뒤</h4>
-        다음 라운드로 가거나 중단하고 환전합니다. 17라운드 승리가 마지막 환전 기회이며, 18라운드(보안구역)에 들어가면 보스를 이기기 전까지 환전할 수 없습니다.
+        · 다음 라운드: 판돈을 그대로 걸고 계속 도전합니다.<br>
+        · 중단하기: 지금 판돈을 뱅크롤로 가져갑니다(환전).<br>
+        라운드가 오를수록 카지노 안쪽으로 들어가며 상대도 강해집니다.
+
         <h4>족보 보너스</h4>
         이긴 족보에 따라 2배가 된 판돈에 보너스가 더해집니다.<br>
         원페어 5% · 투페어 7% · 트리플 10% · 스트레이트 12% · 플러시 15% · 풀하우스 20% · 포카드 100% · 스트레이트 플러시 200% · 로열 플러시 500%
+
         <h4>졌을 때</h4>
-        탈락 방지권을 사서 그 라운드를 다시 할 수 있습니다. 여러 번 살 수 있고 가격은 (라운드×기본 참가비×이번 게임 구매 횟수 + 현재 판돈의 30%) × 이번 라운드에서 진 횟수입니다. 같은 라운드에서 계속 지면 가격이 빠르게 오릅니다. 사지 않으면 게임이 끝납니다. 18라운드(보안구역)부터는 탈락 방지권을 쓸 수 없습니다.
+        탈락 방지권을 사면 판돈을 지킨 채 그 라운드를 다시 할 수 있습니다. 가격은 (라운드 × 기본 참가비 × 이번 게임 구매 횟수 + 현재 판돈의 30%) × 이번 라운드에서 진 횟수입니다. 같은 라운드에서 계속 지면 빠르게 비싸지며, 다음 가격은 게임 중 화면 위쪽 정보 줄에서 미리 볼 수 있습니다. 사지 않으면 도전이 끝납니다.
+
         <h4>비겼을 때</h4>
-        · 묻고 더블로: 새 카드로 바로 쇼다운하고, 이기면 판돈이 한 번 더 2배가 됩니다.<br>
+        · 묻고 더블로: 새 카드로 바로 한 판 더 하고, 이기면 판돈이 한 번 더 2배가 됩니다.<br>
         · 다시하기: 폴드 기회를 채우고 같은 라운드를 다시 합니다.
+
         <h4>증강</h4>
-        3라운드마다 착한 증강과 나쁜 증강이 번갈아 적힌 슬롯머신이 돌아가 하나가 정해집니다(착한 46% · 나쁜 46% · 무지개 4% · 지옥 4%). 건너뛰기를 누르면 바로 결과를 봅니다. 마음에 들지 않으면 칩을 내고 다시 뽑을 수 있습니다(100칩부터 쓸 때마다 2배, 한 게임 동안 유지).
-        <h4>카지노 구역</h4>
-        1~5 카지노 로비 · 6~11 메인 홀 · 12~17 하이롤러 테이블 · 18~20 보안구역 · 21 펜트하우스<br>
-        12라운드부터는 피쉬·레크·레귤러가 나오지 않습니다. 18라운드의 슬롯머신은 무엇이 나올지 정해져 있다는 소문이 있습니다.<br>
-        21라운드 펜트하우스에서는 카지노의 주인이 기다립니다. 5판 3선승제로 진행되며, 무료 폴드만 쓸 수 있고 아이템은 쓸 수 없습니다. 지면 판돈을 모두 잃습니다.
-        <h4>하이롤러</h4>
-        숨겨진 엔딩을 보면 해금됩니다. 참가비 1억칩으로 R1부터 시작해 이길 때마다 판돈이 2배가 되는 무한 도전 모드입니다. 구역·보스 없이 계속 진행되며, 피쉬·레크는 나오지 않고 나머지 상대는 R1부터 모두 등장합니다. 탈락 방지권과 유료 폴드는 쓸 수 없고, 증강 다시 뽑기는 한 게임에 3회 무료로 주어집니다. 이긴 뒤 언제든 환전할 수 있습니다.
+        3라운드마다 슬롯머신이 돌아가 이번 도전에 효과가 하나 붙습니다. 좋은 효과도 나쁜 효과도 있습니다. 마음에 들지 않으면 칩을 내고 다시 뽑을 수 있습니다(100칩부터 쓸 때마다 2배). 받은 증강은 화면 위쪽에 표시되며, 누르면 효과를 볼 수 있습니다.
+
         <h4>게임 시작</h4>
-        참가비를 내고 시작합니다. 강화의 라운드 스킵을 해금하면 시작 라운드를 R3·R6·R9로 올릴 수 있고, 참가비와 시작 판돈은 그 라운드 기준입니다(R3 4배, R6 32배, R9 256배). 건너뛴 라운드의 증강은 뽑지 않고, 시작한 라운드의 증강만 바로 뽑습니다.<br>
-        뱅크롤이 참가비보다 적으면 남은 칩을 전부 걸고 1라운드를 시작하는 라스트 찬스를 쓸 수 있습니다. 라스트 찬스로 시작한 게임에서는 폴드할 수 없습니다. 무료 입장이 없는데 뱅크롤이 0이 되면 파산하여 강화가 초기화되고 무료 입장 3회를 받습니다. 라스트 찬스 대신 직접 파산을 선택할 수도 있습니다.
+        참가비를 내고 1라운드부터 시작합니다. 처음에는 무료 입장 3회가 주어집니다.<br>
+        · 강화의 라운드 스킵을 해금하면 R3·R6·R9에서 시작할 수 있습니다(참가비와 시작 판돈은 그 라운드 기준).<br>
+        · 뱅크롤이 참가비보다 적으면 남은 칩을 전부 거는 라스트 찬스를 쓸 수 있습니다(폴드 불가).<br>
+        · 무료 입장이 없는데 뱅크롤이 0이 되면 파산하여 강화가 초기화되고 무료 입장 3회를 다시 받습니다.
+
         <h4>카드 색</h4>
         <span class="sw" id="sw-s"></span>스페이드 검정 · <span class="sw" id="sw-h"></span>하트 빨강 · <span class="sw" id="sw-d"></span>다이아 파랑 · <span class="sw" id="sw-c"></span>클로버 초록
+
         <h4>더 알아보기</h4>
-        상대별 능력과 증강 효과는 설정의 도감에서 확인할 수 있습니다.
+        처음 보는 상대나 상황을 만나면 테이블 오른쪽 위(메인 화면에서는 설정 버튼 옆)에 <b>노란 느낌표(!)</b>가 나타납니다. 누르면 설명을 볼 수 있습니다. 만난 상대의 능력과 증강 효과는 설정의 도감에서 다시 볼 수 있습니다.
       </div>
       <button class="pbtn gold notch" style="width:100%; margin-top:calc(var(--u) * 4);" onclick="$('rules-modal').classList.add('hidden')">확인</button>
     </div>
   </div>
+
+  <!-- 족보 -->
+  <div id="handrank-modal" class="modal hidden" onclick="if(event.target===this)closeHandRanks()">
+    <div class="modal-box panel notch">
+      <div class="panel-title">족보 (강한 순서)</div>
+      <div class="rank-tbl" id="handrank-list"></div>
+      <div class="rank-foot">
+        · 내 카드 2장 + 바닥 카드 5장, 총 7장 중에서 <b>가장 좋은 5장</b>으로 족보를 만듭니다.<br>
+        · 숫자 서열: <b>A &gt; K &gt; Q &gt; J &gt; 10 &gt; 9 … &gt; 2</b> (스트레이트에서는 A가 1로도 쓰입니다)<br>
+        · 족보가 같으면 더 높은 숫자로 만든 쪽이 이기고, 그것도 같으면 남은 카드(키커)를 비교합니다. 완전히 같으면 무승부입니다.<br>
+        · 초록 글씨는 그 족보로 이겼을 때 받는 <b>판돈 보너스</b>입니다.
+      </div>
+      <button class="pbtn gold notch" style="width:100%; margin-top:calc(var(--u) * 3);" onclick="closeHandRanks()">닫기</button>
+    </div>
+  </div>
+  <button id="guide-btn" class="guide-btn notch hidden" onclick="openGuide()" aria-label="가이드">!<span class="n hidden" id="guide-n"></span></button>
 
   <!-- 의문의 브로커 -->
   <div id="broker-modal" class="modal hidden" onclick="if(event.target===this)closeBroker()">
@@ -1193,7 +1269,7 @@ function updateAcctUI() {
     $('set-acct-hint').textContent = label;
     const b = $('set-acct-btn'); b.textContent = google ? '로그아웃' : '구글 연결'; b.classList.toggle('gold', !google); b.classList.toggle('dark', google); b.disabled = !u;
     $('rank-acct').classList.remove('hidden');
-    $('rank-acct-t').textContent = google ? label + ' · 어느 기기에서든 이어서 할 수 있어요' : '구글 계정을 연결하면 다른 기기에서도 이어서 할 수 있어요.';
+    $('rank-acct-t').textContent = google ? label + ' · 어느 기기에서든 이어서 할 수 있습니다' : '구글 계정을 연결하면 다른 기기에서도 이어서 할 수 있습니다.';
     const rb = $('rank-acct-btn'); rb.textContent = google ? '로그아웃' : '구글 연결'; rb.classList.toggle('gold', !google); rb.disabled = !u;
   });
 }
@@ -1216,19 +1292,19 @@ async function handleLinkError(e) {
   const code = e && e.code;
   if (code === 'auth/credential-already-in-use' || code === 'auth/email-already-in-use') {
     const cred = e.credential || (firebase.auth.GoogleAuthProvider.credentialFromError && firebase.auth.GoogleAuthProvider.credentialFromError(e));
-    if (!cred) { showAlert('이미 다른 진행 상황과 연결된 구글 계정이에요.\n다시 시도해 주세요.'); return; }
-    showConfirmModal('이 구글 계정에는 이미 저장된 진행 상황이 있어요.\n그 진행 상황을 불러올까요?\n\n지금 이 브라우저의 게스트 진행 상황은 사라져요.', async () => {
+    if (!cred) { showAlert('이미 다른 진행 상황과 연결된 구글 계정입니다.\n다시 시도해 주십시오.'); return; }
+    showConfirmModal('이 구글 계정에는 이미 저장된 진행 상황이 있습니다.\n그 진행 상황을 불러오시겠습니까?\n\n지금 이 브라우저의 게스트 진행 상황은 사라집니다.', async () => {
       const guest = acctUser(); const guestUid = guest && guest.isAnonymous ? guest.uid : null;
       if (guestUid) await deleteGuestDocs(guestUid);
       try { await ACCT.auth.signInWithCredential(cred); wipeLocalAndReload(true); }
-      catch (err) { showAlert('구글 로그인에 실패했어요.\n잠시 후 다시 시도해 주세요.'); }
+      catch (err) { showAlert('구글 로그인에 실패했습니다.\n잠시 후 다시 시도해 주십시오.'); }
     });
     return;
   }
   if (code === 'auth/popup-closed-by-user' || code === 'auth/cancelled-popup-request') return;
-  if (code === 'auth/unauthorized-domain') { showAlert('이 주소는 Firebase에 승인된 도메인이 아니에요.\n(관리자: Authentication → 설정 → 승인된 도메인)'); return; }
-  if (code === 'auth/operation-not-allowed') { showAlert('구글 로그인이 아직 켜져 있지 않아요.\n(관리자: Authentication → 로그인 방법 → Google)'); return; }
-  showAlert('구글 연결에 실패했어요.\n' + (code || '알 수 없는 오류'));
+  if (code === 'auth/unauthorized-domain') { showAlert('이 주소는 Firebase에 승인된 도메인이 아닙니다.\n(관리자: Authentication → 설정 → 승인된 도메인)'); return; }
+  if (code === 'auth/operation-not-allowed') { showAlert('구글 로그인이 아직 켜져 있지 않습니다.\n(관리자: Authentication → 로그인 방법 → Google)'); return; }
+  showAlert('구글 연결에 실패했습니다.\n' + (code || '알 수 없는 오류'));
 }
 async function googleConnect() {
   const u = acctUser(); if (!u || !u.isAnonymous) return;
@@ -1237,7 +1313,7 @@ async function googleConnect() {
     await u.linkWithPopup(provider);
     await ACCT.auth.currentUser.reload();
     updateAcctUI(); pushCloud();
-    showAlert('구글 계정이 연결됐어요!\n이제 다른 기기에서 같은 구글 계정으로 로그인하면 이어서 할 수 있어요.');
+    showAlert('구글 계정이 연결되었습니다!\n이제 다른 기기에서 같은 구글 계정으로 로그인하면 이어서 할 수 있습니다.');
   } catch (e) {
     if (e && (e.code === 'auth/popup-blocked' || e.code === 'auth/operation-not-supported-in-this-environment')) {
       try { await u.linkWithRedirect(provider); } catch (e2) { handleLinkError(e2); }
@@ -1247,7 +1323,7 @@ async function googleConnect() {
   }
 }
 function googleLogout() {
-  showConfirmModal('로그아웃할까요?\n진행 상황은 구글 계정에 안전하게 남아 있고,\n이 브라우저는 새 게스트로 시작해요.', async () => {
+  showConfirmModal('로그아웃하시겠습니까?\n진행 상황은 구글 계정에 안전하게 남아 있고,\n이 브라우저는 새 게스트로 시작합니다.', async () => {
     try { await pushCloud(); } catch (e) {}
     try { await ACCT.auth.signOut(); } catch (e) {}
     wipeLocalAndReload(false);
@@ -1263,7 +1339,7 @@ async function connectBackend() {
   return { db, uid };
 }
 async function initCloud() {
-  if (IS_WEB) fxSafe(() => { const li = $('rank-guide-login'); if (li) li.innerHTML = '가입 없이 <b>닉네임만 등록</b>하면 랭킹에 참여할 수 있어요. 진행 상황은 이 브라우저에 연결돼요.'; });
+  if (IS_WEB) fxSafe(() => { const li = $('rank-guide-login'); if (li) li.innerHTML = '가입 없이 <b>닉네임만 등록</b>하면 랭킹에 참여할 수 있습니다. 진행 상황은 이 브라우저에 연결됩니다.'; });
   try {
     const be = await connectBackend();
     if (!be) { if (!$('aof-history-view').classList.contains('hidden')) { updateRankUI(); renderRankList(true); } return; }
@@ -1438,6 +1514,110 @@ function showConfirmModal(msg, cb) {
 }
 function closeModal() { $('custom-modal').classList.add('hidden'); }
 function showRules() { sfx('click'); openModal('rules-modal'); }
+
+/* ===== 초보자 도우미: 핸드 별점 · 족보 보기 · 처음 보는 상황 가이드 ===== */
+// 무작위 상대 1명과 올인했을 때의 승률(%) — 몬테카를로로 미리 계산한 값
+const PREFLOP_EQ = {'22':51.4,'33':53.6,'44':57.9,'55':59.8,'66':63.6,'77':66.8,'88':69,'99':71.4,AA:85.1,AKs:67,AKo:66.4,AQs:66.8,AQo:65.6,AJs:64.1,AJo:64.3,ATs:64.8,ATo:63.5,A9s:63.9,A9o:61.4,A8s:61.7,A8o:60.3,A7s:62.2,A7o:57.7,A6s:58.7,A6o:59.1,A5s:61.1,A5o:59.4,A4s:60.9,A4o:56.6,A3s:58.3,A3o:56.3,A2s:57.6,A2o:55.9,KK:82.6,KQs:63.8,KQo:60.9,KJs:63.6,KJo:61,KTs:61.3,KTo:59.4,K9s:61.1,K9o:57.1,K8s:57.1,K8o:55.3,K7s:56.8,K7o:56.1,K6s:56.4,K6o:55,K5s:57.1,K5o:52.6,K4s:54.7,K4o:53.3,K3s:54.2,K3o:52.7,K2s:53.1,K2o:51.3,QQ:80,QJs:61.8,QJo:58.7,QTs:59.2,QTo:57.2,Q9s:56.7,Q9o:55,Q8s:55.4,Q8o:53.7,Q7s:54.8,Q7o:52.4,Q6s:55,Q6o:52,Q5s:51.9,Q5o:50.3,Q4s:51.6,Q4o:48.8,Q3s:50.8,Q3o:48.7,Q2s:48.5,Q2o:47.5,JJ:78.2,JTs:57.7,JTo:57,J9s:56.3,J9o:52.1,J8s:53.4,J8o:51,J7s:53.4,J7o:50.8,J6s:50.6,J6o:47.2,J5s:49.4,J5o:47.3,J4s:49.3,J4o:46.3,J3s:48.6,J3o:44.8,J2s:48.4,J2o:43.9,TT:74.9,T9s:54.4,T9o:51.8,T8s:51.4,T8o:50,T7s:49.2,T7o:48.2,T6s:49.6,T6o:45.4,T5s:47.2,T5o:43.8,T4s:46.7,T4o:44.5,T3s:45.8,T3o:42.4,T2s:44.9,T2o:40.9,'98s':50.9,'98o':48,'97s':48.9,'97o':45.6,'96s':48.6,'96o':42.9,'95s':45.8,'95o':42.8,'94s':43.2,'94o':41.5,'93s':42.9,'93o':38.4,'92s':43,'92o':41.3,'87s':48.1,'87o':44.7,'86s':47.1,'86o':43.3,'85s':45.5,'85o':40.5,'84s':42.4,'84o':39.9,'83s':40.8,'83o':37.4,'82s':39.2,'82o':36,'76s':44.3,'76o':43.8,'75s':42.4,'75o':39.8,'74s':42.7,'74o':40.1,'73s':39.1,'73o':36.4,'72s':39,'72o':34.3,'65s':42.4,'65o':40.4,'64s':41.1,'64o':39.1,'63s':39.8,'63o':35.5,'62s':38.4,'62o':33.8,'54s':41.2,'54o':35.9,'53s':40.2,'53o':36.4,'52s':39.4,'52o':32,'43s':37.5,'43o':35.6,'42s':39.3,'42o':32.4,'32s':35.2,'32o':30.6};
+function handKey(cards) {
+  const a = cards[0], b = cards[1]; let hi = a, lo = b;
+  if (cardVal(b) > cardVal(a)) { hi = b; lo = a; }
+  if (hi[0] === lo[0]) return hi[0] + lo[0];
+  return hi[0] + lo[0] + (hi[1] === lo[1] ? 's' : 'o');
+}
+function handStars(cards) {
+  const e = PREFLOP_EQ[handKey(cards)] || 50;
+  return e >= 63 ? 5 : e >= 56 ? 4 : e >= 50 ? 3 : e >= 43 ? 2 : 1;
+}
+const STAR_WORD = ['', '매우 약함', '약함', '보통', '좋음', '최상'];
+function renderHandStars() {
+  const el = $('hand-stars'); if (!el) return;
+  if (!G || !G.myCards || G.myCards.length !== 2) { el.innerHTML = ''; return; }
+  const hidden = G.opponent && G.opponent.id === 'cyclops' && G.phase === 'decision';
+  if (hidden) { el.innerHTML = '<span class="off">★★★★★</span><em>?</em>'; el.title = '한 장이 가려져 있어 알 수 없습니다'; return; }
+  const n = handStars(G.myCards);
+  el.innerHTML = '★'.repeat(n) + `<span class="off">${'★'.repeat(5 - n)}</span><em>${STAR_WORD[n]}</em>`;
+  el.title = '무작위 상대와 올인했을 때 기준의 패 세기';
+}
+const HAND_RANKS = [
+  ['로열 플러시', '같은 무늬의 A·K·Q·J·10', ['As', 'Ks', 'Qs', 'Js', 'Ts']],
+  ['스트레이트 플러시', '같은 무늬로 숫자가 5장 연속', ['9h', '8h', '7h', '6h', '5h']],
+  ['포카드', '같은 숫자 4장', ['Qs', 'Qh', 'Qd', 'Qc', '3s']],
+  ['풀하우스', '같은 숫자 3장 + 같은 숫자 2장', ['Ks', 'Kh', 'Kd', '4c', '4s']],
+  ['플러시', '같은 무늬 5장 (숫자는 상관없음)', ['Ad', 'Jd', '8d', '6d', '2d']],
+  ['스트레이트', '숫자가 5장 연속 (무늬는 상관없음)', ['Tc', '9d', '8s', '7h', '6c']],
+  ['트리플', '같은 숫자 3장', ['7s', '7h', '7d', 'Kc', '2s']],
+  ['투페어', '같은 숫자 2장이 두 쌍', ['Js', 'Jd', '5c', '5h', 'As']],
+  ['원페어', '같은 숫자 2장', ['9s', '9c', 'Ah', '8d', '4s']],
+  ['하이카드', '아무것도 없을 때, 가장 높은 카드로 비교', ['Ah', 'Js', '8d', '5c', '2h']]
+];
+function miniCard(c) {
+  const r = c[0] === 'T' ? '10' : c[0], st = { s: '♠', h: '♥', d: '♦', c: '♣' }[c[1]];
+  return `<span class="mc ${c[1]}">${r}${st}</span>`;
+}
+function showHandRanks() {
+  sfx('click');
+  $('handrank-list').innerHTML = HAND_RANKS.map(([nm, ds, ex], i) => {
+    const b = HAND_BONUS[nm]; const bt = b ? `+${Math.round(b * 100)}%` : '';
+    return `<div class="rank-row"><div class="no">${i + 1}</div><div><div class="nm">${nm}<small>${bt}</small></div><div class="ds">${ds}</div><div class="mcs">${ex.map(miniCard).join('')}</div></div></div>`;
+  }).join('');
+  openModal('handrank-modal');
+}
+function closeHandRanks() { sfx('click'); $('handrank-modal').classList.add('hidden'); }
+
+// 처음 보는 상황 가이드: 처음 마주치면 화면 구석에 '!'가 생기고, 누르면 설명을 띄운다 (읽은 것은 다시 안 나옴)
+const GUIDES = {
+  basics: ['기본 진행', '내 카드 2장을 보고 선택하십시오.\n\n· ALL-IN: 승부합니다. 바닥에 카드 5장이 깔리고, 족보가 더 높은 쪽이 이깁니다. 이기면 판돈이 2배가 됩니다.\n· FOLD: 이번 카드를 버리고 새 카드를 받습니다. 라운드마다 무료 폴드 기회가 정해져 있습니다.\n\nMY HAND 옆의 별점은 내 패가 얼마나 좋은지 알려 줍니다. ★4개 이상이면 올인해 볼 만합니다. 족보가 헷갈리면 [족보 보기]를 눌러 보십시오.'],
+  showdown: ['쇼다운', '올인하면 바닥 카드가 순서대로 깔립니다.\n\n· 플랍: 3장\n· 턴: 1장\n· 리버: 마지막 1장\n\n가운데 막대는 지금 상황의 승률입니다. 카드가 모두 깔리면 내 카드 2장과 바닥 5장 중 가장 좋은 5장으로 승패를 가립니다.'],
+  win: ['이겼을 때', '판돈이 2배가 되었습니다. 이제 선택할 수 있습니다.\n\n· 다음 라운드: 판돈을 그대로 걸고 계속 도전합니다. 이기면 또 2배가 됩니다.\n· 중단하기: 지금 판돈을 뱅크롤로 가져갑니다(환전).\n\n지면 판돈을 모두 잃으니, 욕심과 안전 사이에서 신중하게 판단하십시오.'],
+  lose: ['졌을 때', '탈락 방지권을 사면 판돈을 지킨 채 이 라운드를 다시 할 수 있습니다.\n\n같은 라운드에서 계속 지면 가격이 빠르게 올라갑니다. 다음 방지권 가격은 게임 중 화면 위쪽 정보 줄에서 미리 볼 수 있습니다.\n\n사지 않으면 이번 도전은 끝나고 판돈은 사라집니다.'],
+  tie: ['비겼을 때', '서로 족보가 같아 무승부입니다.\n\n· 묻고 더블로: 새 카드로 바로 한 판 더 합니다. 이기면 판돈이 한 번 더 2배가 됩니다.\n· 다시하기: 폴드 기회를 채우고 이 라운드를 다시 합니다.'],
+  augment: ['증강', '3라운드마다 슬롯머신이 돌아가 이번 도전에 효과가 하나 붙습니다. 좋은 효과도, 나쁜 효과도 있습니다.\n\n결과가 마음에 들지 않으면 칩을 내고 다시 뽑을 수 있습니다. 받은 증강은 화면 위쪽에 표시되며, 누르면 효과를 다시 볼 수 있습니다.'],
+  paidfold: ['폴드 기회 소진', '이번 라운드의 무료 폴드를 모두 사용했습니다.\n\n이제부터는 칩을 내야 폴드할 수 있으며, 가격은 쓸 때마다 2배로 오릅니다. 패가 나쁘더라도 올인으로 승부할지, 칩을 내고 바꿀지 선택하십시오.'],
+  lastchance: ['라스트 찬스', '뱅크롤이 참가비보다 적습니다.\n\n라스트 찬스를 쓰면 남은 칩을 전부 걸고 1라운드부터 시작합니다. 대신 이 도전에서는 폴드할 수 없습니다.'],
+  keycard: ['카드키 조각', '카드키 조각을 얻었습니다.\n\n조각을 모두 모으면 무언가 달라질지도 모릅니다.'],
+  broker: ['수상한 인물', '메인 화면 구석에 누군가 서 있습니다.\n\n눌러서 이야기를 들어 보십시오.'],
+  hr: ['하이롤러', '새 모드가 열렸습니다.\n\n도전 시작 버튼 옆의 [하이롤러]를 눌러 모드를 바꿀 수 있습니다. 참가비가 크고, 끝없이 이어지는 도전입니다.'],
+  boss: ['결전', '이번 승부는 5판 3선승제입니다.\n\n무료 폴드만 쓸 수 있고 아이템은 쓸 수 없습니다. 지면 판돈을 모두 잃습니다.'],
+  zone_hall: ['새 구역', '카지노 안쪽으로 들어왔습니다.\n\n더 까다로운 상대들이 테이블에 앉기 시작합니다.'],
+  zone_high: ['새 구역', '판이 커졌습니다.\n\n이제부터는 만만한 손님(피쉬·레크·레귤러)이 나오지 않습니다.'],
+  zone_security: ['새 구역', '이곳에서는 시간이 굳어 있습니다.\n\n탈락 방지권을 쓸 수 없고, 환전도 할 수 없습니다. 끝까지 가는 수밖에 없습니다.']
+};
+let oppGuidesReady = false;
+function ensureOppGuides() {
+  if (oppGuidesReady) return; oppGuidesReady = true;
+  for (const c of CODEX) GUIDES['opp_' + c.id] = [`새로운 상대: ${c.name}`, c.story + '\n\n' + c.ability.map(([t, d]) => `[${t}] ${d}`).join('\n\n') + '\n\n(도감에서 다시 볼 수 있습니다)'];
+}
+const GUIDE_Q = [];
+function guide(id) {
+  ensureOppGuides();
+  if (!GUIDES[id] || !aofGlobal) return;
+  if (!aofGlobal.guides || typeof aofGlobal.guides !== 'object') aofGlobal.guides = {};
+  if (aofGlobal.guides[id] || GUIDE_Q.includes(id)) return;
+  GUIDE_Q.push(id);
+  renderGuideBtn();
+}
+function renderGuideBtn() {
+  const b = $('guide-btn'); if (!b) return;
+  // 게임 중에는 테이블 오른쪽 위, 메인 화면에서는 설정 버튼 옆
+  fxSafe(() => {
+    const inGame = !$('aof-game').classList.contains('hidden'), onMain = !$('aof-setup').classList.contains('hidden');
+    if (inGame) { const t = $('table'); if (b.parentNode !== t) t.appendChild(b); b.className = 'guide-btn notch in-table'; }
+    else if (onMain) { const bar = document.querySelector('#aof-setup .topbar'), gear = bar.querySelector('.gear'); if (b.parentNode !== bar) bar.insertBefore(b, gear); b.className = 'guide-btn notch in-top'; }
+    else b.className = 'guide-btn notch';
+    if (!inGame && !onMain) { b.classList.add('hidden'); return; }
+  });
+  if (!$('aof-game').classList.contains('hidden') || !$('aof-setup').classList.contains('hidden')) b.classList.toggle('hidden', GUIDE_Q.length === 0);
+  const n = $('guide-n'); n.textContent = GUIDE_Q.length; n.classList.toggle('hidden', GUIDE_Q.length < 2);
+}
+function openGuide() {
+  const id = GUIDE_Q.shift(); if (!id) return;
+  sfx('click');
+  aofGlobal.guides[id] = true; saveAoFGlobal();
+  const [t, body] = GUIDES[id];
+  showAlert(`💡 ${t}\n\n${body}`);
+  fxSafe(() => { $('modal-msg').style.textAlign = 'left'; });
+  renderGuideBtn();
+}
 
 /* =========================================================
    상대 / 증강 데이터
@@ -1840,6 +2020,8 @@ function updateAoFGlobalUI() {
   tweenNum(brEl, aofGlobal.chips);
 
   const startBtn = $('btn-start-aof'), skipBtn = $('btn-start-skip');
+  if (!G) { if (brokerVisible()) guide('broker'); if (hrUnlocked()) guide('hr'); if (isLastChance()) guide('lastchance'); }
+  renderGuideBtn();
   const bk = $('broker-btn');
   if (bk) { bk.classList.toggle('hidden', !brokerVisible()); if (!bk._init) { $('broker-sp').innerHTML = spriteSvg(SPRITES.broker.map, SPRITES.broker.over); bk._init = true; } }
   const fb = $('free-badge');
@@ -1954,7 +2136,7 @@ async function submitRanks(force = false) {
     const key = JSON.stringify(body);
     if (!force && RANK.last[mode] === key) continue;
     try { await CLOUD.db.doc(rankPath(mode) + '/' + CLOUD.uid).set({ ...body, updatedAt: Date.now() }); RANK.last[mode] = key; RANK.cache[mode] = null; }
-    catch (e) { if (e && e.code === 'invalid_argument') { RANK.canWrite = false; updateRankUI(); } else if (e && e.code === 'rejected') { setRankStatus('기록이 서버 검증을 통과하지 못해 등록되지 않았어요.', 'warn'); } return; }
+    catch (e) { if (e && e.code === 'invalid_argument') { RANK.canWrite = false; updateRankUI(); } else if (e && e.code === 'rejected') { setRankStatus('기록이 서버 검증을 통과하지 못해 등록되지 않았습니다.', 'warn'); } return; }
   }
 }
 async function loadRanks(mode) {
@@ -1974,21 +2156,21 @@ function augIconsHtml(augs) {
 function updateRankUI() {
   const inp = $('nick-input'), btn = $('nick-save');
   if (document.activeElement !== inp) inp.value = aofGlobal.nick || '';
-  if (!CLOUD.db || !CLOUD.uid) { inp.disabled = true; btn.disabled = true; setRankStatus(IS_WEB ? '랭킹 서버에 연결하지 못했어요. 잠시 후 다시 열어주세요.' : '로그인이 필요합니다. claude.ai에 로그인한 상태로 이 링크를 열어주세요.', 'warn'); return; }
-  if (RANK.canWrite === false) { inp.disabled = true; btn.disabled = true; setRankStatus('랭킹을 볼 수는 있지만, 이 링크의 권한으로는 기록을 등록할 수 없어요.', 'warn'); return; }
+  if (!CLOUD.db || !CLOUD.uid) { inp.disabled = true; btn.disabled = true; setRankStatus(IS_WEB ? '랭킹 서버에 연결하지 못했습니다. 잠시 후 다시 열어 주십시오.' : '로그인이 필요합니다. claude.ai에 로그인한 상태로 이 링크를 열어 주십시오.', 'warn'); return; }
+  if (RANK.canWrite === false) { inp.disabled = true; btn.disabled = true; setRankStatus('랭킹을 볼 수는 있지만, 이 링크의 권한으로는 기록을 등록할 수 없습니다.', 'warn'); return; }
   inp.disabled = false; btn.disabled = false;
-  setRankStatus(aofGlobal.nick ? `'${aofGlobal.nick}'(으)로 참여 중 · 최고 기록이 자동으로 등록돼요.` : '닉네임을 등록하면 랭킹에 참여해요.', aofGlobal.nick ? 'ok' : '');
+  setRankStatus(aofGlobal.nick ? `'${aofGlobal.nick}'(으)로 참여 중 · 최고 기록이 자동으로 등록됩니다.` : '닉네임을 등록하면 랭킹에 참여합니다.', aofGlobal.nick ? 'ok' : '');
 }
 async function saveNick() {
   const n = cleanNick($('nick-input').value);
-  if (!n) { sfx('buzz'); setRankStatus('닉네임을 입력해 주세요.', 'warn'); return; }
+  if (!n) { sfx('buzz'); setRankStatus('닉네임을 입력해 주십시오.', 'warn'); return; }
   if (!CLOUD.db || !CLOUD.uid) { sfx('buzz'); updateRankUI(); return; }
   sfx('click');
   aofGlobal.nick = n; saveAoFGlobal(); markDirty();
   setRankStatus('등록하는 중…');
   await submitRanks(true);
   updateRankUI();
-  if (RANK.canWrite !== false) { const best = bestRecord('normal') || bestRecord('hr'); if (!best) setRankStatus(`'${n}'(으)로 등록했어요. 상금을 환전하면 기록이 올라가요.`, 'ok'); }
+  if (RANK.canWrite !== false) { const best = bestRecord('normal') || bestRecord('hr'); if (!best) setRankStatus(`'${n}'(으)로 등록했습니다. 상금을 환전하면 기록이 올라갑니다.`, 'ok'); }
   renderRankList(true);
 }
 function setRankTab(t) {
@@ -1998,7 +2180,7 @@ function setRankTab(t) {
 }
 function renderMine() {
   const records = getRecords().slice().sort(cmpRank).slice(0, 30);
-  return records.length === 0 ? '<div class="rk-empty">아직 기록이 없습니다.<br>도전하고 상금을 환전해 보세요.</div>' :
+  return records.length === 0 ? '<div class="rk-empty">아직 기록이 없습니다.<br>도전하고 상금을 환전해 보십시오.</div>' :
     records.map((r, i) => `<div class="hist-item">
       <div class="medal notch ${i < 3 ? 'm' + (i + 1) : ''}" style="--n:3px;">${i + 1}</div>
       <div style="flex:1;"><div>${r.clear ? (r.ending === 'refuse' ? '🕊 고리를 끊다' : '👑 엔딩 클리어') : r.hr ? `💎 하이롤러 R${r.round}` : `R${r.round} 클리어`}${r.god ? ' <span style="color:var(--muted); font-size:.8em;">(이스터에그)</span>' : ''}</div><div style="font-size:11px; color:var(--muted);">${r.date || ''} ${r.augs ? '· 증강 ' + r.augs : ''}</div></div>
@@ -2007,12 +2189,12 @@ function renderMine() {
 async function renderRankList(reload) {
   const list = $('aof-records-list'), tab = RANK.tab;
   if (tab === 'mine') { list.innerHTML = renderMine(); return; }
-  if (!CLOUD.db) { list.innerHTML = IS_WEB ? '<div class="rk-empty">랭킹 서버에 연결하는 중이거나 연결하지 못했어요.<br>잠시 후 다시 열어주세요.</div>' : '<div class="rk-empty">로그인이 필요합니다.<br>claude.ai에 로그인하면 다른 플레이어의 랭킹을 볼 수 있어요.</div>'; return; }
+  if (!CLOUD.db) { list.innerHTML = IS_WEB ? '<div class="rk-empty">랭킹 서버에 연결하는 중이거나 연결하지 못했습니다.<br>잠시 후 다시 열어 주십시오.</div>' : '<div class="rk-empty">로그인이 필요합니다.<br>claude.ai에 로그인하면 다른 플레이어의 랭킹을 볼 수 있습니다.</div>'; return; }
   let rows = reload ? null : RANK.cache[tab];
   if (!rows) { list.innerHTML = '<div class="rk-empty">랭킹을 불러오는 중…</div>'; rows = await loadRanks(tab); }
   if (RANK.tab !== tab) return;
-  if (!rows) { list.innerHTML = '<div class="rk-empty">랭킹을 불러오지 못했어요.<br>잠시 후 다시 열어주세요.</div>'; return; }
-  if (!rows.length) { list.innerHTML = '<div class="rk-empty">아직 등록된 기록이 없어요.<br>첫 번째 이름을 올려보세요!</div>'; return; }
+  if (!rows) { list.innerHTML = '<div class="rk-empty">랭킹을 불러오지 못했습니다.<br>잠시 후 다시 열어 주십시오.</div>'; return; }
+  if (!rows.length) { list.innerHTML = '<div class="rk-empty">아직 등록된 기록이 없습니다.<br>첫 번째 이름을 올려 보십시오!</div>'; return; }
   const myIdx = rows.findIndex(r => r.id === CLOUD.uid);
   const badge = r => r.ending === 'refuse' ? ' 🕊' : r.ending ? ' 👑' : '';
   const rowHtml = (r, i) => `<div class="rk-row ${r.id === CLOUD.uid ? 'me' : ''}" data-rk="${i}">
@@ -2024,8 +2206,8 @@ async function renderRankList(reload) {
   RANK.shown = rows;
   list.innerHTML = `<div class="rk-head"><div>순위</div><div>닉네임</div><div class="rk-r">라운드</div><div class="rk-p">상금</div></div>` +
     top.map(rowHtml).join('') + (myIdx >= TOP ? `<div class="rk-mine">· · ·</div>` + rowHtml(rows[myIdx], myIdx) : '') +
-    `<div class="rk-mine">기록을 누르면 세부 기록을 볼 수 있어요.</div>` +
-    (myIdx < 0 ? `<div class="rk-mine">${aofGlobal.nick ? '아직 이 모드의 기록이 없어요.' : '닉네임을 등록하면 내 기록도 여기에 올라가요.'}</div>` : '');
+    `<div class="rk-mine">기록을 누르면 세부 기록을 볼 수 있습니다.</div>` +
+    (myIdx < 0 ? `<div class="rk-mine">${aofGlobal.nick ? '아직 이 모드의 기록이 없습니다.' : '닉네임을 등록하면 내 기록도 여기에 올라갑니다.'}</div>` : '');
   // 닉네임은 textContent로 넣는다 (다른 사람이 쓴 값)
   const shown = top.concat(myIdx >= TOP ? [rows[myIdx]] : []);
   list.querySelectorAll('.rk-row').forEach(el => { el.onclick = () => showRankDetail(Number(el.dataset.rk)); });
@@ -2044,12 +2226,13 @@ function showRankDetail(i) {
 function showAoFHistory() {
   sfx('click');
   $('aof-setup').classList.add('hidden'); $('aof-history-view').classList.remove('hidden');
+  renderGuideBtn();
   updateRankUI();
   submitRanks().then(() => { updateRankUI(); });
   setRankTab(RANK.tab);
   renderRankList(true);
 }
-function closeAoFHistory() { sfx('click'); $('aof-history-view').classList.add('hidden'); $('aof-setup').classList.remove('hidden'); }
+function closeAoFHistory() { sfx('click'); $('aof-history-view').classList.add('hidden'); $('aof-setup').classList.remove('hidden'); renderGuideBtn(); }
 
 /* =========================================================
    게임 상태
@@ -2161,7 +2344,7 @@ function startAoFSession(storySeen = false) {
   else {
     const fee = entryFee();
     if (aofGlobal.chips < baseFee()) { handleBankruptcy(); return; }
-    if (aofGlobal.chips < fee) { sfx('buzz'); showAlert(`뱅크롤이 부족합니다. (필요: ${fmt(fee)})\n시작 라운드를 낮춰주세요.`); return; }
+    if (aofGlobal.chips < fee) { sfx('buzz'); showAlert(`뱅크롤이 부족합니다. (필요: ${fmt(fee)})\n시작 라운드를 낮춰 주십시오.`); return; }
     aofGlobal.chips -= fee;
   }
   saveAoFGlobal();
@@ -2247,6 +2430,7 @@ function runBossIntro() {
   G.boss = { form: 'lib', me: 0, bo: 0, undoUsed: false, peeked: false, pendingTransform: false, faking: false };
   G.opponent = OPPONENTS.TIME_TRAVELER;
   G.myCards = []; G.oppHands = []; G.board = [];
+  if (aofGlobal.bossSeen) { runBossIntroShort(); return; }
   setBossPortrait('time'); $('opp-face').classList.add('silhouette'); $('opp-name').innerText = '???';
   setAoFMsg(''); setOppDialogue('');
   renderGame();
@@ -2259,6 +2443,7 @@ function runBossIntro() {
     [2600, () => {
       const pf = $('opp-face'); pf.classList.remove('silhouette'); pf.classList.remove('reveal'); void pf.offsetWidth; pf.classList.add('reveal');
       $('opp-name').innerText = '시간여행자';
+      aofGlobal.bossSeen = true; saveAoFGlobal();
       flash('#ffffff'); shake(); sfx('alarm'); setAoFMsg('');
       banner('시간여행자', '카지노의 주인', 'c-purple');
       setOppDialogue('…익숙한 얼굴이군. 아주 오래전부터 알던 것처럼.');
@@ -2273,7 +2458,32 @@ function runBossIntro() {
     [2000, () => beginBossSet()]
   ]);
 }
+// 두 번째 이후 보스전: 짧은 등장 연출
+const BOSS_RETURN_LINES = [
+  ['…또 왔군.', '몇 번을 와도, 결말은 내가 정한다.'],
+  ['기다리고 있었다. 이번 시간선에서도.', '시작하지.'],
+  ['익숙한 발소리군.', '이번엔 어디까지 버틸지 보자.'],
+  ['다시 여기까지 왔나.', '좋다. 봉인을 풀지.']
+];
+function runBossIntroShort() {
+  const [l1, l2] = pick(BOSS_RETURN_LINES);
+  setBossPortrait('time'); $('opp-face').classList.remove('silhouette', 'reveal'); $('opp-name').innerText = '시간여행자';
+  setAoFMsg(''); setOppDialogue('');
+  renderGame();
+  banner('ROUND 21', '펜트하우스', 'c-blue'); sfx('round');
+  cutscene([
+    [1300, () => setOppDialogue(l1)],
+    [2000, () => { setOppDialogue(l2); sfx('rewind'); }],
+    [1800, () => {
+      flash('#ffffff'); shake(); sfx('alarm');
+      G.opponent = BOSS_LIB; setBossPortrait('lib'); $('opp-name').innerText = BOSS_LIB.name;
+      banner('BOSS', '해방된 시간여행자 · 5판 3선승', 'c-purple'); renderGame();
+    }],
+    [1600, () => beginBossSet()]
+  ]);
+}
 function beginBossSet() {
+  guide('boss');
   G.lives = roundLives(); G.tieMult = 1; G.highlight = []; G.display = null;
   setAoFMsg('');
   dealAoFHand();
@@ -2543,6 +2753,7 @@ function startAoFRound() {
   G.phase = 'idle'; G.resultType = null; G.display = null; G.highlight = []; G.destroyed = null;
   G.myCards = []; G.oppHands = []; G.board = [];
   G.zoneRound = G.round;
+  if (!G.practice && !G.hr) { const zid = zoneOf(G.round).id; if (['hall', 'high', 'security'].includes(zid)) guide('zone_' + zid); }
   setAoFMsg(''); setOppDialogue('');
   renderGame();
   if (G.round === BOSS_ROUND && !G.practice && !G.hr) { runBossIntro(); return; }
@@ -2577,6 +2788,7 @@ function beginRound(keepOpponent, excludeId) {
   else if (isWeapon()) { banner('WARNING', '헤즈업 결전 병기 출현' + newTag, 'c-red warn'); sfx('alarm'); flash('#e63946'); }
   else if (!keepOpponent) { banner(`ROUND ${G.round}`, `${G.hr ? '💎 하이롤러' : zoneOf(G.round).name} · VS ${G.opponent.name}` + newTag); sfx('round'); }
   setOppDialogue(line('intro'));
+  guide('opp_' + G.opponent.id);
   dealAoFHand();
 }
 
@@ -2604,7 +2816,8 @@ function dealAoFHand() {
   G.phase = 'decision';
   if (G.opponent.id === 'rec') setOppDialogue(recLine(G.oppHands[0]));
   if (isBoss()) { bossAfterDeal(); return; }
-  setAoFMsg('카드를 확인하고 액션을 선택하세요.');
+  guide('basics');
+  setAoFMsg('카드를 확인하고 액션을 선택하십시오.');
   renderGame();
 }
 
@@ -2655,6 +2868,7 @@ function showAugInfo(key) {
   showAlert(`${a.name} · ${AUG_TYPE_LABEL[a.type]} 증강\n\n${AUG_LONG[a.id] || a.desc}${extra}`);
 }
 function renderAugRow() {
+  renderGuideBtn();
   $('aug-row').classList.toggle('boss', !!(G.boss && G.round === BOSS_ROUND));
   if (G.boss && G.round === BOSS_ROUND) {
     const b = G.boss, pip = (n, cls) => [0, 1, 2].map(i => `<i class="bp ${i < n ? cls : ''}"></i>`).join('');
@@ -2669,6 +2883,7 @@ function renderAugRow() {
 
 function renderCards() {
   renderFx = { deal: false, flip: false };
+  renderHandStars();
   const ph = G.phase, opp = G.opponent ? G.opponent.id : '';
   const reveal = ph === 'showdown' || ph === 'result' || ph === 'folding';
   const pk = peekActive();
@@ -2739,6 +2954,7 @@ function renderButtons() {
     else if (G.hr) { sub = tet ? '봉인 · 하이롤러' : '폴드 기회 없음 · 하이롤러'; disabled = true; }
     else {
       const cost = extraFoldCost();
+      if (!tet) guide('paidfold');
       if (aofGlobal.chips >= cost) sub = `${tet ? '봉인 · ' : ''}${fmt(cost)}칩 지불`;
       else { sub = `${fmt(cost)}칩 · 뱅크롤 부족`; disabled = true; }
     }
@@ -2834,6 +3050,7 @@ function playerWinsNow() {
 
 async function allinAoF(forced = false) {
   if (!G || G.phase !== 'decision') return;
+  guide('showdown');
   if (isBoss()) return bossAllin();
   const tk = G.token, opp = G.opponent.id, notes = [];
   G.skip = false; skipResolvers = [];
@@ -2963,7 +3180,7 @@ function finishAoFShowdown(notes = []) {
 
   if (result === 'win') resolveWin((G.autoWinActive ? '밑장빼기 성공! ' : '') + `승리! ${handLabel(my)}` + noteTxt, my);
   else if (result === 'tie') {
-    G.resultType = 'tie';
+    G.resultType = 'tie'; guide('tie');
     setOppDialogue('...비겼군.');
     setAoFMsg(`무승부! ${my.name}${noteTxt}\n묻고 더블로 갈까, 다시 할까?`, 'gold');
     renderGame(); banner('DRAW', '', 'c-blue'); sfx('tie');
@@ -2993,6 +3210,7 @@ function resolveWin(msg, myEval) {
   const rate = handBonusRate(myEval), label = handLabel(myEval);
   const doubled = G.pot * factor, bonus = Math.floor(doubled * rate);
   G.tieMult = 1; G.pot = doubled + bonus; G.round++; G.resultType = 'win';
+  if (!G.practice) guide('win');
   const bonusTxt = bonus > 0 ? ` + ${label} 보너스 ${Math.round(rate * 100)}%` : '';
   setAoFMsg(msg + `\n판돈 x${factor}${bonusTxt} → ${fmt(G.pot)}`, 'green');
   renderGame();
@@ -3014,13 +3232,14 @@ function resolveLose(msg) {
   setOppDialogue(line('win'));
   G.tieMult = 1;
   if (G.freePrevent > 0) { triggerSalvation(msg); return; }
-  if (canPrevent()) { G.resultType = 'lose-prevent'; setAoFMsg(msg + (G.freePrevent > 0 ? '\n구원 방지권(무료)으로 재도전 가능' : `\n탈락 방지권(${G.preventCount + 1}번째${roundLosses() > 1 ? ` · 이 라운드 ${roundLosses()}패 ×${roundLosses()}` : ''})으로 재도전 가능`), 'red'); }
+  if (canPrevent()) { guide('lose'); G.resultType = 'lose-prevent'; setAoFMsg(msg + (G.freePrevent > 0 ? '\n구원 방지권(무료)으로 재도전 가능' : `\n탈락 방지권(${G.preventCount + 1}번째${roundLosses() > 1 ? ` · 이 라운드 ${roundLosses()}패 ×${roundLosses()}` : ''})으로 재도전 가능`), 'red'); }
   else {
     G.resultType = 'gameover';
     metBroker();
     let keyTxt = '';
     if (!G.hr && !G.practice && G.round === NO_PREVENT_FROM && (aofGlobal.keyShards || 0) < KEY_NEED) {
       aofGlobal.keyShards = (aofGlobal.keyShards || 0) + 1; saveAoFGlobal();
+      guide('keycard');
       keyTxt = `\n🔑 보안구역 카드키 조각 획득 (${aofGlobal.keyShards}/${KEY_NEED})` + (keyReady() ? ' · 카드키 완성!' : '');
       const tk = G.token;
       setTimeout(() => { if (alive(tk)) { banner('🔑 ' + aofGlobal.keyShards + '/' + KEY_NEED, keyReady() ? '보안구역 카드키 완성' : '보안구역 카드키 조각 획득', ''); sfx(keyReady() ? 'rainbow' : 'good'); sparks($('aof-msg'), '#f4c542', 16); } }, 1600);
@@ -3176,7 +3395,7 @@ function reelItemHtml(a) {
 }
 let slotSeq = 0;
 function runAugmentSlot(done, forcedId) {
-  G.phase = 'augment'; renderButtons();
+  G.phase = 'augment'; renderButtons(); guide('augment');
   const mySeq = ++slotSeq;
   const forced = forcedId ? [...AUGMENTS.good, ...AUGMENTS.bad, ...AUGMENTS.rainbow, ...AUGMENTS.hell].find(a => a.id === forcedId) : null;
   const win = forced || rollAugment();
